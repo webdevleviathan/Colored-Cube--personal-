@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #d6b9b9;
+  }
+  
+  .cube {
+    perspective: 60000000000000px;
+    transform-style: preserve-3d;
+    animation: rotate 50s infinite linear;
+    top: -500px;
+  }
+  
+  .face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    place-items: center;
+  }
+  
+  .square {
+    width: 90px;
+    height: 90px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .front { transform: translateZ(150px); }
+  .back { transform: rotateY(180deg) translateZ(150px); }
+  .left { transform: rotateY(-90deg) translateZ(150px); }
+  .right { transform: rotateY(90deg) translateZ(150px); }
+  .top { transform: rotateX(90deg) translateZ(150px); }
+  .bottom { transform: rotateX(-90deg) translateZ(150px); }
+  
+  @keyframes rotate {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+  }
+  
